@@ -1,4 +1,4 @@
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { cpSync, copyFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
@@ -15,6 +15,7 @@ export default defineConfig({
         const outputDirectory = resolve(projectRoot, 'dist');
         mkdirSync(outputDirectory, { recursive: true });
         copyFileSync(resolve(projectRoot, 'manifest.json'), resolve(outputDirectory, 'manifest.json'));
+        cpSync(resolve(projectRoot, 'public'), outputDirectory, { recursive: true });
       },
     },
   ],

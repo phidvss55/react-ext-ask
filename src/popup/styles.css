@@ -1,0 +1,113 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1d2433;
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #1d2433;
+  --color-text-secondary: #5d687a;
+  --color-border: #d8dee9;
+  --color-primary: #225ac5;
+  --color-primary-hover: #19499f;
+  --color-focus: #225ac5;
+  --color-error: #b42318;
+  --color-error-surface: #fef3f2;
+  --color-success: #067647;
+  --color-disabled: #9ba5b5;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 400px; background: var(--color-bg); }
+
+button, input, select, textarea { font: inherit; }
+
+button { cursor: pointer; }
+
+button:disabled { cursor: not-allowed; }
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-focus) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.popup-shell { width: 400px; min-height: 500px; padding: 16px; }
+
+.popup-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h1, h2, p { margin: 0; }
+
+h1 { font-size: 16px; font-weight: 600; line-height: 1.4; }
+h2, label { display: block; font-size: 14px; font-weight: 600; }
+.popup-header p, .helper-text, .shortcut { color: var(--color-text-secondary); font-size: 12px; line-height: 1.5; }
+
+.text-button, .danger-button {
+  border: 0;
+  background: transparent;
+  padding: 4px;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.composer, .settings-content { display: grid; gap: 8px; padding: 16px 0; }
+
+textarea, input, select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 10px 12px;
+}
+
+textarea { min-height: 112px; resize: vertical; line-height: 1.5; }
+input, select { min-height: 40px; }
+
+.composer-actions, .settings-actions { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.settings-actions { justify-content: flex-start; }
+
+.primary-button {
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #ffffff;
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.primary-button:hover:not(:disabled) { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+.primary-button:disabled { background: var(--color-disabled); border-color: var(--color-disabled); }
+.danger-button { color: var(--color-error); }
+
+.status-message, .error-message, .configured-status {
+  margin: 0 0 12px;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.status-message { background: var(--color-surface); color: var(--color-text-secondary); }
+.error-message { background: var(--color-error-surface); color: var(--color-error); }
+.configured-status { background: #ecfdf3; color: var(--color-success); }
+
+.response-panel { border-top: 1px solid var(--color-border); padding-top: 16px; }
+.response-panel h2 { margin-bottom: 8px; }
+.response-text, .response-empty { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.6; }
+.response-empty { color: var(--color-text-secondary); }
+
+@media (prefers-reduced-motion: no-preference) {
+  button, input, select, textarea { transition: border-color 120ms ease, background-color 120ms ease; }
+}
